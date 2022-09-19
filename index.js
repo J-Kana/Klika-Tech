@@ -15,6 +15,8 @@ const template = (status, message, data, autch, res) => {
 
 app.use(bodyParser.json({ limit: '50kb' }))
 app.use(bodyParser.urlencoded({ extended: true, limit: '50kb' }))
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'upload')));
 
 const db = require('./models');
 
@@ -32,13 +34,4 @@ app.use((req, res) => { template(404, "Route '" + req.url + "' not found!", [], 
 
 app.listen(process.env.HOST_PORT, () => {
     console.log("Localhost server started on port " + process.env.HOST_PORT + "!", Date())
-});
-
-// Have Node serve the files for our built React app
-app.use(express.static(path.resolve(__dirname, '../frontend-klika/build')));
-
-
-// All other GET requests not handled before will return our React app
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../frontend-klika/build', 'index.html'));
 });
