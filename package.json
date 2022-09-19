@@ -1,0 +1,22 @@
+{
+  "name": "klika-music",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "build": "cd ../frontend-klika && npm install && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "custom-env": "^2.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7",
+    "pg": "^8.8.0",
+    "react-router-dom": "^6.4.0",
+    "sequelize": "^6.23.0"
+  }
+}
